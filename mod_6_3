@@ -1,8 +1,8 @@
 from pathlib import Path
 import shutil
 import sys
-import parser_1
-from normalazi import normalize
+import mod_6_2
+from mod_6_1 import normalize
 def handle_media(file_name: Path, target_folder: Path):
     target_folder.mkdir(exist_ok=True, parents=True)
     file_name.replace(target_folder / normalize(file_name.name))
@@ -17,52 +17,52 @@ def handle_archive(file_name: Path, target_folder: Path):
         return
     file_name.unlink()
 def main(folder: Path):
-    parser_1.scan(folder)
-    for file in parser_1.JPEG_IMAGES:
+    mod_6_2.scan(folder)
+    for file in mod_6_2.JPEG_IMAGES:
         handle_media(file, folder / 'images' / 'JPEG')
-    for file in parser_1.JPG_IMAGES:
+    for file in mod_6_2.JPG_IMAGES:
         handle_media(file, folder / 'images' / 'JPG')
-    for file in parser_1.PNG_IMAGES:
+    for file in mod_6_2.PNG_IMAGES:
         handle_media(file, folder / 'images' / 'PNG')
-    for file in parser_1.SVG_IMAGES:
+    for file in mod_6_2.SVG_IMAGES:
         handle_media(file, folder / 'images' / 'SVG')
-    for file in parser_1.AVI_VIDEO:
+    for file in mod_6_2.AVI_VIDEO:
         handle_media(file, folder / 'video' / 'AVI')
-    for file in parser_1.MP4_VIDEO:
+    for file in mod_6_2.MP4_VIDEO:
         handle_media(file, folder / 'video' / 'MP4')
-    for file in parser_1.MOV_VIDEO:
+    for file in mod_6_2.MOV_VIDEO:
         handle_media(file, folder / 'video' / 'MOV')
-    for file in parser_1.MKV_VIDEO:
+    for file in mod_6_2.MKV_VIDEO:
         handle_media(file, folder / 'video' / 'MKV')
-    for file in parser_1.DOC_DOC:
+    for file in mod_6_2.DOC_DOC:
         handle_media(file, folder / 'documents' / 'DOC')
-    for file in parser_1.DOCX_DOC:
+    for file in mod_6_2.DOCX_DOC:
         handle_media(file, folder / 'documents' / 'DOCX')
-    for file in parser_1.TXT_DOC:
+    for file in mod_6_2.TXT_DOC:
         handle_media(file, folder / 'documents' / 'TXT')
-    for file in parser_1.PDF_DOC:
+    for file in mod_6_2.PDF_DOC:
         handle_media(file, folder / 'documents' / 'PDF')
-    for file in parser_1.XLSX_DOC:
+    for file in mod_6_2.XLSX_DOC:
         handle_media(file, folder / 'documents' / 'XLSX')
-    for file in parser_1.PPTX_DOC:
+    for file in mod_6_2.PPTX_DOC:
         handle_media(file, folder / 'documents' / 'PPTX')
-    for file in parser_1.MP3_AUDIO:
+    for file in mod_6_2.MP3_AUDIO:
         handle_media(file, folder / 'audio' / 'MP3')
-    for file in parser_1.OGG_AUDIO:
+    for file in mod_6_2.OGG_AUDIO:
         handle_media(file, folder / 'audio' / 'OGG')
-    for file in parser_1.WAV_AUDIO:
+    for file in mod_6_2.WAV_AUDIO:
         handle_media(file, folder / 'audio' / 'WAV')
-    for file in parser_1.AMR_AUDIO:
+    for file in mod_6_2.AMR_AUDIO:
         handle_media(file, folder / 'audio' / 'AMR')
-    for file in parser_1.ZIP_ARCHIVES:
+    for file in mod_6_2.ZIP_ARCHIVES:
         handle_archive(file, folder / 'archives' / 'ZIP')
-    for file in parser_1.GZ_ARCHIVES:
+    for file in mod_6_2.GZ_ARCHIVES:
         handle_archive(file, folder / 'archives' / 'GZ')
-    for file in parser_1.TAR_ARCHIVES:
+    for file in mod_6_2.TAR_ARCHIVES:
         handle_archive(file, folder / 'archives' / 'TAR')
-    for file in parser_1.OTHER_FILES:
+    for file in mod_6_2.OTHER_FILES:
         handle_media(file, folder / 'OTHER_FILES')
-    for folder in parser_1.FOLSERS[::1]:
+    for folder in mod_6_2.FOLSERS[::1]:
         try:
             folder.mkdir()
         except OSError:
